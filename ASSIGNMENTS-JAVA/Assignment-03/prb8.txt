@@ -1,0 +1,23 @@
+package assingment_3;
+class multi1 extends Thread {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("\tFrom thread 1 = i " + i);
+        }
+    }
+}
+class multi2 extends Thread {
+    public void run() {
+        for (int j = 0; j < 5; j++) {
+            System.out.println("\tFrom thread 2 = j " + j);
+        }
+    }
+}
+public class Thred_Check {
+    public static void main(String[] args) {
+        multi1 m1 = new multi1();
+        m1.start();
+        multi2 m2 = new multi2();
+        m2.start();
+    }
+}

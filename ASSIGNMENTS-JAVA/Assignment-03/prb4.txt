@@ -1,0 +1,25 @@
+//Throeing our own exceptions
+package assingment_3;
+import java.lang.Exception;
+class MyException extends Exception {
+    MyException(String message) {
+        super(message);
+    }
+}
+public class Test_My_Exception {
+    public static void main(String[] args) {
+        int x = 5;
+        int y = 1000;
+        try {
+            float z = (float) x / (float) y;
+            if (z < 0.01) {
+                throw new MyException("Number is very small");
+            }
+        } catch (MyException e) {
+            System.out.println("Catch my exceptions");
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("I am aleays here");
+        }
+    }
+}

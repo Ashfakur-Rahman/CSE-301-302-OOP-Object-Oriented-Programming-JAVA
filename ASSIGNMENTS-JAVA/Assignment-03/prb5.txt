@@ -1,0 +1,23 @@
+package assingment_3;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+class D extends Thread{
+    @Override
+    public void run(){
+        for (int i = 0; i < 5; i++) {
+            System.out.println("\tFrom Thread A = i"+i);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(D.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+}
+public class Thread_Class {
+    public static void main(String[] args) {
+        D d;
+        d = new D();
+        d.start();
+    }
+}

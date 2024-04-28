@@ -1,0 +1,46 @@
+//Use of priority in threads
+package assingment_3;
+class A1 extends Thread {
+    public void run() {
+        System.out.println("Thread A1 Started");
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("\tFrom Thread A1 : i = " + i);
+        }
+        System.out.println("Exit From A1");
+    }
+}
+class A2 extends Thread {
+    public void run() {
+        System.out.println("Thread A2 Started");
+        for (int j = 1; j <= 4; j++) {
+            System.out.println("\tFrom Thread A2 : j = " + j);
+        }
+        System.out.println("Exit From A2");
+    }
+}
+class A3 extends Thread {
+    public void run() {
+        System.out.println("Thread A3 Started");
+        for (int k = 1; k <= 4; k++) {
+            System.out.println("\tFrom Thread A3 : i = " + k);
+        }
+        System.out.println("Exit From A3");
+    }
+}
+public class Thread_Priority {
+    public static void main(String[] args) {
+        A1 threadA1 = new A1();
+        A2 threadA2 = new A2();
+        A3 threadA3 = new A3();
+        threadA3.setPriority(Thread.MAX_PRIORITY);
+        threadA2.setPriority(threadA1.getPriority() + 1);
+        threadA1.setPriority(Thread.MIN_PRIORITY);
+        System.out.println("Start Thread A1");
+        threadA1.start();
+        System.out.println("Start Thread A2");
+        threadA2.start();
+        System.out.println("Start Thread A3");
+        threadA3.start();
+        System.out.println("End of Main Thread");
+    }
+}
